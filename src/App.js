@@ -1,16 +1,18 @@
-import React from "react";
-import PropsAndState from "./props-and-state";
+import React, { useState } from "react";
+import LifeCycleDemo from "./ComponentLifeCycle";
 
-function App(params) {
+function App() {
+  const [mounted, setMounted] = useState(false);
+
   return (
     <div>
-      <h1>Hello, React!</h1>
-      <p>This is first component in react</p>
-      <br />
-      <p>
-        <p>This section we'll use props and state </p>
-        <PropsAndState message="this message is passed through props" />
-      </p>
+      <button onClick={() => setMounted(true)} disabled={mounted}>
+        Mount LifeCycleDemo component
+      </button>
+      <button onClick={() => setMounted(false)} disabled={!mounted}>
+        UnMount LifeCycleDemo component
+      </button>
+      {mounted ? <LifeCycleDemo /> : null}
     </div>
   );
 }
