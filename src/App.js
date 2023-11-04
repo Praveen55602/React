@@ -1,18 +1,16 @@
-import React, { useState } from "react";
-import LifeCycleDemo from "./ComponentLifeCycle";
+import React from "react";
+import ThemeContextProvider from "./ThemeContext";
+import MyComponent from "./Component1";
 
 function App() {
-  const [mounted, setMounted] = useState(false);
-
   return (
     <div>
-      <button onClick={() => setMounted(true)} disabled={mounted}>
-        Mount LifeCycleDemo component
-      </button>
-      <button onClick={() => setMounted(false)} disabled={!mounted}>
-        UnMount LifeCycleDemo component
-      </button>
-      {mounted ? <LifeCycleDemo /> : null}
+      <ThemeContextProvider themeValue="light">
+        <MyComponent />
+      </ThemeContextProvider>
+      <ThemeContextProvider themeValue="dark">
+        <MyComponent />
+      </ThemeContextProvider>
     </div>
   );
 }
