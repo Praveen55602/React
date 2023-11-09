@@ -1,17 +1,31 @@
 import React from "react";
-import ThemeContextProvider from "./ThemeContext";
-import MyComponent from "./Component1";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import home from "./Home";
+import PropsAndState from "./props-and-state";
+import QueryParams, { RouteParams } from "./Routing";
 
 function App() {
   return (
-    <div>
-      <ThemeContextProvider themeValue="light">
-        <MyComponent />
-      </ThemeContextProvider>
-      <ThemeContextProvider themeValue="dark">
-        <MyComponent />
-      </ThemeContextProvider>
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<PropsAndState />} />
+          <Route path="/about" element={<PropsAndState />} />
+          <Route path="/routing" element={<QueryParams />} />
+          <Route path="/routing/:username/:rollno" element={<RouteParams />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
