@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import home from "./Home";
 import PropsAndState from "./props-and-state";
 import QueryParams, { RouteParams } from "./Routing";
 
