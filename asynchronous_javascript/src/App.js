@@ -1,25 +1,13 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { useState } from "react";
+import PromisesDemo, { CallbackHellSolution } from "./PromisesComponent";
+import CallbackHell from "./CallbackHell";
 
 function App() {
   return (
     <div className="App">
+      <PromisesDemo />
       <h2>this project is to learn about asynchronous javascript</h2>
-      {setTimeout(
-        () => {
-          console.log(
-            "message logged using setTimeout functin after 5 seconds"
-          );
-        },
-        5000,
-        "praveen"
-      )}
-      {setInterval(() => {
-        console.log(
-          "this message is logged using setInterval after every 5 seconds"
-        );
-      }, 5000)}
+      <CallbackHell />
+      <CallbackHellSolution />
     </div>
   );
 }
